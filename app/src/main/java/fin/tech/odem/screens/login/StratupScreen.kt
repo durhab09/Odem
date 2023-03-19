@@ -17,13 +17,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import fin.tech.odem.R
 
 @Composable
-@Preview
-fun Startup (){
+fun Startup (navController: NavController){
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -33,7 +34,7 @@ fun Startup (){
         Spacer(modifier = Modifier.padding(vertical = 24.dp))
         Image(painter = painterResource(id = R.drawable.onlinepayment), contentDescription = "Payments logo",modifier = Modifier.size(256.dp))
         Spacer(modifier = Modifier.padding(vertical = 24.dp))
-        Button(onClick = { /*TODO*/ },
+        Button(onClick = { navController.navigate("login") },
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF536DFE))) {
 
             Text(text = "Login", fontSize = 24.sp,
@@ -41,7 +42,7 @@ fun Startup (){
                 textAlign = TextAlign.Center)
         }
         Spacer(modifier = Modifier.padding(vertical = 24.dp))
-        Button(onClick = { /*TODO*/ },
+        Button(onClick = { navController.navigate("register") },
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF536DFE))) {
             Text(text = "Register", fontSize = 24.sp,
                 modifier = Modifier.size(width = 128.dp, height = 36.dp),

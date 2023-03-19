@@ -31,10 +31,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun RegisterView(){
+fun RegisterView(navController: NavHostController) {
 
     Box (
         modifier = Modifier
@@ -102,8 +103,7 @@ fun RegisterView(){
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-@Preview
-fun PersonalInformationsView(){
+fun PersonalInformationsView(navController: NavHostController){
     Box (
         modifier = Modifier
             .fillMaxSize()
