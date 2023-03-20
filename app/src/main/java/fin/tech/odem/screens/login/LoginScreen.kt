@@ -34,7 +34,9 @@ import androidx.navigation.NavHostController
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LoginView(navController: NavHostController) {
-
+    var emailValue by remember { mutableStateOf("") }
+    var passwordValue by remember { mutableStateOf("") }
+    val loginViewModel:LoginViewModel = LoginViewModel()
     Box (
         modifier = Modifier
             .fillMaxSize()
@@ -44,8 +46,6 @@ fun LoginView(navController: NavHostController) {
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            var emailValue by remember { mutableStateOf("") }
-            var passwordValue by remember { mutableStateOf("") }
 
             val customTextFieldShape = RoundedCornerShape(4.dp)
 
@@ -87,7 +87,11 @@ fun LoginView(navController: NavHostController) {
                 Text(text = "Reset password", color = Color(0xFF536DFE))
             }
             Spacer(modifier = Modifier.padding(vertical = 32.dp))
-            Button(onClick = { /*TODO*/ },
+            Button(onClick = {
+                                if(loginViewModel.Login(emailValue,passwordValue)){
+                                    navController.navigate("HomeScreen")
+                                }
+                             },
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF536DFE))) {
                 Text(text = "Login", fontSize = 24.sp,
                     modifier = Modifier.size(width = 128.dp, height = 36.dp),

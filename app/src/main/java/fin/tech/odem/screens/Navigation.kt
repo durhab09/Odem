@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import fin.tech.odem.screens.home.HomeScreen
 import fin.tech.odem.screens.login.LoginView
 import fin.tech.odem.screens.login.PersonalInformationsView
 import fin.tech.odem.screens.login.RegisterView
@@ -27,6 +28,10 @@ fun Nav(){
 
         composable(route = "PersonalInfos"){
             PersonalInformationsView(navController)
+        }
+
+        composable(route="HomeScreen"){
+            HomeScreen()
         }
     }
 }

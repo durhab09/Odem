@@ -91,7 +91,7 @@ fun RegisterView(navController: NavHostController) {
                 Text(text = "By registering, you agree to the General Agreement, the Terms of Use and the Privacy Policy", color = Color(0xFFAFAFAF))
             }
             Spacer(modifier = Modifier.padding(vertical = 32.dp))
-            Button(onClick = { /*TODO*/ },
+            Button(onClick = { navController.navigate("PersonalInfos") },
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF536DFE))) {
                 Text(text = "Register", fontSize = 24.sp,
                     modifier = Modifier.size(width = 128.dp, height = 36.dp),
