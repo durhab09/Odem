@@ -28,15 +28,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 
+val registerViewModel = RegisterViewModel()
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RegisterView(navController: NavHostController) {
-
     Box (
         modifier = Modifier
             .fillMaxSize()
@@ -104,23 +103,21 @@ fun RegisterView(navController: NavHostController) {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PersonalInformationsView(navController: NavHostController){
+    var firstNameValue by remember { mutableStateOf("") }
+    var lastNameValue by remember { mutableStateOf("") }
+    var phoneNumberValue by remember { mutableStateOf("") }
+    var addressValue by remember { mutableStateOf("") }
+    var zipValue by remember { mutableStateOf("") }
+    var cityValue by remember { mutableStateOf("") }
     Box (
         modifier = Modifier
             .fillMaxSize()
-            .padding(top = 72.dp, bottom = 64.dp, start = 24.dp, end = 24.dp),
+            .padding(top = 48.dp, bottom = 64.dp, start = 24.dp, end = 24.dp),
     ){
         Column(
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            var firstNameValue by remember { mutableStateOf("") }
-            var lastNameValue by remember { mutableStateOf("") }
-            var phoneNumberValue by remember { mutableStateOf("") }
-            var addressValue by remember { mutableStateOf("") }
-            var zipValue by remember { mutableStateOf("") }
-            var cityValue by remember { mutableStateOf("") }
-
-
             val customTextFieldShape = RoundedCornerShape(4.dp)
             TextField(
                 value = firstNameValue,
@@ -138,7 +135,7 @@ fun PersonalInformationsView(navController: NavHostController){
                 ),
 
                 )
-            Spacer(modifier = Modifier.padding(vertical = 24.dp))
+            Spacer(modifier = Modifier.padding(vertical = 18.dp))
             TextField(
                 value = lastNameValue,
                 onValueChange = { lastNameValue = it },
@@ -155,7 +152,7 @@ fun PersonalInformationsView(navController: NavHostController){
                 ),
 
                 )
-            Spacer(modifier = Modifier.padding(vertical = 24.dp))
+            Spacer(modifier = Modifier.padding(vertical = 18.dp))
             TextField(
                 value = addressValue,
                 onValueChange = { addressValue = it },
@@ -172,7 +169,7 @@ fun PersonalInformationsView(navController: NavHostController){
                 ),
 
                 )
-            Spacer(modifier = Modifier.padding(vertical = 24.dp))
+            Spacer(modifier = Modifier.padding(vertical = 18.dp))
             TextField(
                 value = cityValue,
                 onValueChange = { cityValue = it },
@@ -189,7 +186,7 @@ fun PersonalInformationsView(navController: NavHostController){
                 ),
 
                 )
-            Spacer(modifier = Modifier.padding(vertical = 24.dp))
+            Spacer(modifier = Modifier.padding(vertical = 18.dp))
             TextField(
                 value = zipValue,
                 onValueChange = { zipValue = it },
@@ -206,7 +203,7 @@ fun PersonalInformationsView(navController: NavHostController){
                 ),
 
                 )
-            Spacer(modifier = Modifier.padding(vertical = 24.dp))
+            Spacer(modifier = Modifier.padding(vertical = 18.dp))
             TextField(
                 value = phoneNumberValue,
                 onValueChange = { phoneNumberValue = it },
@@ -222,8 +219,8 @@ fun PersonalInformationsView(navController: NavHostController){
                     cursorColor = Color(0xFF536DFE)
                 )
                 )
-            Spacer(modifier = Modifier.padding(vertical = 32.dp))
-            Button(onClick = { /*TODO*/ },
+            Spacer(modifier = Modifier.padding(vertical = 24.dp))
+            Button(onClick = { if(registerViewModel.Register()){navController.navigate("HomeScreen")} },
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF536DFE))) {
                 Text(text = "Finish", fontSize = 24.sp,
                     modifier = Modifier.size(width = 128.dp, height = 36.dp),
