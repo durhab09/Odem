@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import fin.tech.odem.screens.Nav
+import fin.tech.odem.screens.home.HomeScreen
 import fin.tech.odem.ui.theme.OdemTheme
 
 class MainActivity : ComponentActivity() {
@@ -24,7 +25,7 @@ class MainActivity : ComponentActivity() {
                         .background(Color(0xFF1A1A1A))
                         .padding(top = 64.dp, bottom = 32.dp)
                 ){
-                    Nav()
+                    HomeScreen()
                 }
             }
         }
