@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -21,20 +22,36 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import fin.tech.odem.R
+import fin.tech.odem.screens.BottomBar
 
 @Composable
 @Preview
 fun HomeScreen() {
     Box(modifier = Modifier
         .fillMaxSize()
-        .padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 8.dp)){
-        Column(modifier = Modifier.fillMaxSize()
+        .padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 8.dp)
+    ){
+        Column(modifier = Modifier
+            .fillMaxSize()
         ) {
-            Welcome()
+            //Part 1 : home screen view or when home button clicked
+            HomeView()
             Spacer(modifier = Modifier.padding(vertical = 24.dp))
-            Balance()
+            //Part 2 : Payments view or when payments button clicked
+
+            //Part 3 : Wallet view or when wallet button clicked
+            //this part is always on screen
+            Spacer(modifier = Modifier.padding(vertical = 24.dp))
+            BottomBar()
         }
     }
+}
+
+@Composable
+fun HomeView() {
+    Welcome()
+    Spacer(modifier = Modifier.padding(vertical = 24.dp))
+    Balance()
 }
 
 @Composable
