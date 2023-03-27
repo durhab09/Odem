@@ -20,7 +20,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -32,10 +31,17 @@ import fin.tech.odem.R
 fun PaymentsView() {
     Box(modifier = Modifier.fillMaxWidth()) {
         Column {
-            IconButton(onClick = { /*TODO*/ }) {
-                Image(painter = painterResource(id = R.drawable.back), contentDescription ="back")
+            Row {
+                IconButton(onClick = { /*TODO*/ }) {
+                    Image(modifier = Modifier.size(48.dp),painter = painterResource(id = R.drawable.back), contentDescription ="back")
+                }
+                Text(text = "Payments",
+                    color = Color.White,
+                    fontSize = 22.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.align(Alignment.CenterVertically)
+                )
             }
-            Text(text = "Payments", color = Color.White, fontSize = 18.sp, fontWeight = FontWeight.Bold)
             Spacer(modifier = Modifier.padding(vertical = 18.dp))
             LazyColumn{
                 items(count = 8/*For now this should be sized to the list of transactions List*/){
