@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
@@ -19,15 +20,16 @@ import androidx.compose.ui.unit.dp
 @Composable
 @Preview
 fun HomePaymentsView() {
-    Box(modifier = Modifier.fillMaxSize()
-    ) {
+    Box {
         LazyColumn{
             items(count = 5){
                 i->
                 run {
                     Row(
-                        modifier = Modifier.background(Color(0xFF303030), RoundedCornerShape(4.dp))
-                            .padding(start = 8.dp, end = 8.dp)
+                        modifier = Modifier
+                            .size(width = 380.dp, height = 40.dp)
+                        .background(Color(0xFF303030), RoundedCornerShape(4.dp))
+                        .padding(start = 8.dp, end = 8.dp)
                     ) {
                         Text(text = "From someone", color = Color.White)
                         Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.CenterEnd){

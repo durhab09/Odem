@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -20,6 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import fin.tech.odem.R
+import fin.tech.odem.screens.BottomBar
 
 @Composable
 @Preview
@@ -28,7 +30,7 @@ fun HomeView() {
         Welcome()
         Spacer(modifier = Modifier.padding(vertical = 24.dp))
         Balance()
-        Spacer(modifier = Modifier.padding(vertical = 24.dp))
+        Spacer(modifier = Modifier.padding(vertical = 36.dp))
         HomePaymentsView()
     }
 }
