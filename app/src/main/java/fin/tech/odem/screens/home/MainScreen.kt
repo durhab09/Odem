@@ -14,7 +14,7 @@ import fin.tech.odem.screens.BottomBar
 
 @Composable
 @Preview
-fun HomeScreen() {
+fun MainScreen() {
     Column(modifier = Modifier.fillMaxSize()) {
         Box(
             modifier = Modifier
@@ -22,8 +22,9 @@ fun HomeScreen() {
                 .padding(start = 16.dp, end = 16.dp, top = 8.dp)
         ) {
             //Part 1 : home screen view or when home button clicked
-            //HomeView()
-            PaymentsView()
+            HomeView()
+            //PaymentsView()
+            //WalletView()
         }
 
         //this part is always on screen
