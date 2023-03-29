@@ -12,6 +12,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Snackbar
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
@@ -30,13 +31,17 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
+import fin.tech.odem.screens.destinations.MainScreenDestination
 
+@Destination
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginView(navController: NavHostController) {
+fun LoginView(navigator: DestinationsNavigator) {
     var emailValue by remember { mutableStateOf("") }
     var passwordValue by remember { mutableStateOf("") }
-    val loginViewModel:LoginViewModel = LoginViewModel()
+    val loginViewModel = LoginViewModel()
     Box (
         modifier = Modifier
             .fillMaxSize()
@@ -89,7 +94,7 @@ fun LoginView(navController: NavHostController) {
             Spacer(modifier = Modifier.padding(vertical = 32.dp))
             Button(onClick = {
                                 if(loginViewModel.Login(emailValue,passwordValue)){
-                                    navController.navigate("HomeScreen")
+                                    navigator.navigate(direction = MainScreenDestination)
                                 }
                              },
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF536DFE))) {

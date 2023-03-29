@@ -31,11 +31,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
+import fin.tech.odem.screens.destinations.MainScreenDestination
 
 val registerViewModel = RegisterViewModel()
+@Destination
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun RegisterView(navController: NavHostController) {
+fun RegisterView(navigator: DestinationsNavigator) {
     Box (
         modifier = Modifier
             .fillMaxSize()
@@ -90,7 +94,11 @@ fun RegisterView(navController: NavHostController) {
                 Text(text = "By registering, you agree to the General Agreement, the Terms of Use and the Privacy Policy", color = Color(0xFFAFAFAF))
             }
             Spacer(modifier = Modifier.padding(vertical = 32.dp))
-            Button(onClick = { navController.navigate("PersonalInfos") },
+            Button(onClick = {
+                             if(registerViewModel.Register()){
+                                 navigator.navigate(direction = MainScreenDestination)
+                             }
+            },
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF536DFE))) {
                 Text(text = "Register", fontSize = 24.sp,
                     modifier = Modifier.size(width = 128.dp, height = 36.dp),
@@ -102,7 +110,7 @@ fun RegisterView(navController: NavHostController) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PersonalInformationsView(navController: NavHostController){
+fun PersonalInformationsView(){
     var firstNameValue by remember { mutableStateOf("") }
     var lastNameValue by remember { mutableStateOf("") }
     var phoneNumberValue by remember { mutableStateOf("") }
@@ -220,7 +228,7 @@ fun PersonalInformationsView(navController: NavHostController){
                 )
                 )
             Spacer(modifier = Modifier.padding(vertical = 24.dp))
-            Button(onClick = { if(registerViewModel.Register()){navController.navigate("HomeScreen")} },
+            Button(onClick = { if(registerViewModel.Register()){} },
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF536DFE))) {
                 Text(text = "Finish", fontSize = 24.sp,
                     modifier = Modifier.size(width = 128.dp, height = 36.dp),

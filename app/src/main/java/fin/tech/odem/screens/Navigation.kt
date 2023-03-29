@@ -9,7 +9,7 @@ import fin.tech.odem.screens.login.LoginView
 import fin.tech.odem.screens.login.PersonalInformationsView
 import fin.tech.odem.screens.login.RegisterView
 import fin.tech.odem.screens.login.Startup
-
+/*
 @Composable
 fun Nav(){
     val navController = rememberNavController()
@@ -34,4 +34,5 @@ fun Nav(){
             MainScreen()
         }
     }
-}
+}*/
+

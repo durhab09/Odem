@@ -21,10 +21,15 @@ import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import fin.tech.odem.R
+import fin.tech.odem.screens.destinations.LoginViewDestination
+import fin.tech.odem.screens.destinations.RegisterViewDestination
 
+@Destination(start = true)
 @Composable
-fun Startup (navController: NavController){
+fun Startup (navigator:DestinationsNavigator){
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -34,7 +39,7 @@ fun Startup (navController: NavController){
         Spacer(modifier = Modifier.padding(vertical = 24.dp))
         Image(painter = painterResource(id = R.drawable.onlinepayment), contentDescription = "Payments logo",modifier = Modifier.size(256.dp))
         Spacer(modifier = Modifier.padding(vertical = 24.dp))
-        Button(onClick = { navController.navigate("login") },
+        Button(onClick = { navigator.navigate(direction = LoginViewDestination) },
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF536DFE))) {
 
             Text(text = "Login", fontSize = 24.sp,
@@ -42,7 +47,7 @@ fun Startup (navController: NavController){
                 textAlign = TextAlign.Center)
         }
         Spacer(modifier = Modifier.padding(vertical = 24.dp))
-        Button(onClick = { navController.navigate("register") },
+        Button(onClick = { navigator.navigate(direction = RegisterViewDestination) },
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF536DFE))) {
             Text(text = "Register", fontSize = 24.sp,
                 modifier = Modifier.size(width = 128.dp, height = 36.dp),

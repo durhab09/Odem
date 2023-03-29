@@ -21,8 +21,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.ramcosta.composedestinations.annotation.Destination
 import fin.tech.odem.R
 
+@Destination
 @Composable
 @Preview
 fun HomeView() {
@@ -30,7 +32,7 @@ fun HomeView() {
         Welcome()
         Spacer(modifier = Modifier.padding(vertical = 24.dp))
         Balance()
-        Spacer(modifier = Modifier.padding(vertical = 36.dp))
+        Spacer(modifier = Modifier.padding(vertical = 24.dp))
         HomePaymentsView()
     }
 }
