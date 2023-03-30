@@ -11,12 +11,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import fin.tech.odem.screens.BottomBar
 
 @Destination
 @Composable
-@Preview
-fun MainScreen() {
+fun MainScreen(navigator: DestinationsNavigator) {
     Column(modifier = Modifier.fillMaxSize()) {
         Box(
             modifier = Modifier
@@ -31,11 +31,7 @@ fun MainScreen() {
         }
 
         //this part is always on screen
-        BottomBar(modifier = Modifier
-            .fillMaxWidth()
-            .padding(start = 16.dp, end = 16.dp, bottom = 16.dp)
-            .align(Alignment.CenterHorizontally)
-        )
+        BottomBar(navigator)
     }
 }
 
