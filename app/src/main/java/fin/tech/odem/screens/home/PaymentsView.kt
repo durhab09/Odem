@@ -24,13 +24,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import fin.tech.odem.R
+import fin.tech.odem.screens.BottomBar
 
 @Destination
 @Composable
-@Preview
-fun PaymentsView() {
-    Box(modifier = Modifier.fillMaxWidth()) {
+fun PaymentsView(navigator: DestinationsNavigator) {
+    Box(modifier = Modifier.fillMaxSize()) {
         Column {
             Row {
                 IconButton(onClick = { /*TODO*/ }) {
@@ -62,6 +63,9 @@ fun PaymentsView() {
                     }
                 }
             }
+        }
+        Box(modifier = Modifier.align(alignment = Alignment.BottomEnd)) {
+            BottomBar()
         }
     }
 }

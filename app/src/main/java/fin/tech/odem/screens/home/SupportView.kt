@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -36,15 +37,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import fin.tech.odem.R
+import fin.tech.odem.screens.BottomBar
 
 @Destination
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-@Preview
-fun SupportView() {
+fun SupportView(navigator: DestinationsNavigator) {
     var message by remember { mutableStateOf("") }
-    Box(modifier = Modifier.fillMaxWidth()){
+    Box(modifier = Modifier.fillMaxSize()){
         Column {
             Row {
                 IconButton(onClick = { /*TODO*/ }) {
@@ -87,6 +89,9 @@ fun SupportView() {
                         textAlign = TextAlign.Center)
                 }
             }
+        }
+        Box(modifier = Modifier.align(alignment = Alignment.BottomEnd)) {
+            BottomBar()
         }
     }
 }

@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -22,13 +23,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import fin.tech.odem.R
+import fin.tech.odem.screens.BottomBar
 
 @Destination
 @Composable
-@Preview
-fun WalletView() {
-    Box(modifier = Modifier.fillMaxWidth()){
+fun WalletView(navigator: DestinationsNavigator) {
+    Box(modifier = Modifier.fillMaxSize()){
         Column {
             Row {
                 IconButton(onClick = { /*TODO*/ }) {
@@ -45,6 +47,9 @@ fun WalletView() {
             Balance()
             Spacer(modifier = Modifier.padding(vertical = 8.dp))
             WalletInformations()
+        }
+        Box(modifier = Modifier.align(alignment = Alignment.BottomEnd)) {
+            BottomBar()
         }
     }
 }
