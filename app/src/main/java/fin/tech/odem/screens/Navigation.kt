@@ -4,7 +4,6 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import fin.tech.odem.screens.home.MainScreen
 import fin.tech.odem.screens.login.LoginView
 import fin.tech.odem.screens.login.PersonalInformationsView
 import fin.tech.odem.screens.login.RegisterView

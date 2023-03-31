@@ -44,7 +44,7 @@ import fin.tech.odem.screens.BottomBar
 fun SettingsView(navigator: DestinationsNavigator) {
     var isEditEnabled by remember {mutableStateOf(false)}
     var fullName by remember {mutableStateOf("")}
-    Box(modifier = Modifier.fillMaxSize()){
+    Box(modifier = Modifier.fillMaxSize().padding(start = 16.dp, end = 16.dp, top = 8.dp)){
         Column {
             Row {
                 IconButton(onClick = { /*TODO*/ }) {
@@ -105,7 +105,7 @@ fun SettingsView(navigator: DestinationsNavigator) {
             }
         }
         Box(modifier = Modifier.align(alignment = Alignment.BottomEnd)) {
-            BottomBar()
+            BottomBar(navigator)
         }
     }
 }

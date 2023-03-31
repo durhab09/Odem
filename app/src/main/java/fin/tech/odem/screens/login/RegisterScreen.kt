@@ -33,7 +33,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
-import fin.tech.odem.screens.destinations.MainScreenDestination
+import fin.tech.odem.screens.destinations.HomeViewDestination
 
 val registerViewModel = RegisterViewModel()
 @Destination
@@ -96,7 +96,7 @@ fun RegisterView(navigator: DestinationsNavigator) {
             Spacer(modifier = Modifier.padding(vertical = 32.dp))
             Button(onClick = {
                              if(registerViewModel.Register()){
-                                 navigator.navigate(direction = MainScreenDestination)
+                                 navigator.navigate(direction = HomeViewDestination)
                              }
             },
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF536DFE))) {

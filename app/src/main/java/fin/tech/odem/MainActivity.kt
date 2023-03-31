@@ -12,7 +12,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.ramcosta.composedestinations.DestinationsNavHost
 import fin.tech.odem.screens.NavGraphs
-import fin.tech.odem.screens.home.MainScreen
 import fin.tech.odem.ui.theme.OdemTheme
 
 class MainActivity : ComponentActivity() {
@@ -27,7 +26,6 @@ class MainActivity : ComponentActivity() {
                         .padding(top = 64.dp, bottom = 32.dp)
                 ){
                     DestinationsNavHost(navGraph = NavGraphs.root)
-                    //MainScreen()
                 }
             }
         }

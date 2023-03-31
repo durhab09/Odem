@@ -33,7 +33,7 @@ import fin.tech.odem.screens.destinations.PaymentsViewDestination
 import fin.tech.odem.screens.destinations.WalletViewDestination
 @Destination
 @Composable
-fun BottomBar(/*navigator: DestinationsNavigator*/) {
+fun BottomBar(navigator: DestinationsNavigator) {
     var isHomeSelected by remember { mutableStateOf(false) }
     var isWalletSelected by remember { mutableStateOf(false) }
     var isPaymentSelected by remember { mutableStateOf(false) }
@@ -63,7 +63,7 @@ fun BottomBar(/*navigator: DestinationsNavigator*/) {
                                 isHomeSelected = !isHomeSelected
                                 isPaymentSelected = false
                                 isWalletSelected = false
-                                //navigator.navigate(direction = HomeViewDestination)
+                                navigator.navigate(direction = HomeViewDestination)
                             }) {
                                 if(isHomeSelected){
                                     Image(painter = painterResource(id = R.drawable.homeselected), contentDescription = "home")
@@ -75,7 +75,7 @@ fun BottomBar(/*navigator: DestinationsNavigator*/) {
                                 isPaymentSelected = !isPaymentSelected
                                 isHomeSelected = false
                                 isWalletSelected = false
-                                //navigator.navigate(direction = PaymentsViewDestination)
+                                navigator.navigate(direction = PaymentsViewDestination)
                             }) {
                                 if(isPaymentSelected){
                                     Image(painter = painterResource(id = R.drawable.dollarselected), contentDescription = "home")
@@ -87,7 +87,7 @@ fun BottomBar(/*navigator: DestinationsNavigator*/) {
                                 isWalletSelected = !isWalletSelected
                                 isPaymentSelected = false
                                 isHomeSelected = false
-                                //navigator.navigate(direction = WalletViewDestination)
+                                navigator.navigate(direction = WalletViewDestination)
                             }) {
                                 if(isWalletSelected){
                                     Image(painter = painterResource(id = R.drawable.walletselected), contentDescription = "home")

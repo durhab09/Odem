@@ -33,7 +33,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
-import fin.tech.odem.screens.destinations.MainScreenDestination
+import fin.tech.odem.screens.destinations.HomeViewDestination
 
 @Destination
 @OptIn(ExperimentalMaterial3Api::class)
@@ -94,7 +94,7 @@ fun LoginView(navigator: DestinationsNavigator) {
             Spacer(modifier = Modifier.padding(vertical = 32.dp))
             Button(onClick = {
                                 if(loginViewModel.Login(emailValue,passwordValue)){
-                                    navigator.navigate(direction = MainScreenDestination)
+                                    navigator.navigate(direction = HomeViewDestination)
                                 }
                              },
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF536DFE))) {

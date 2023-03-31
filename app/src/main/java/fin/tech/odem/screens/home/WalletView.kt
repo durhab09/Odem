@@ -26,17 +26,18 @@ import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import fin.tech.odem.R
 import fin.tech.odem.screens.BottomBar
+import fin.tech.odem.screens.destinations.HomeViewDestination
 
 @Destination
 @Composable
 fun WalletView(navigator: DestinationsNavigator) {
-    Box(modifier = Modifier.fillMaxSize()){
+    Box(modifier = Modifier.fillMaxSize().padding(start = 16.dp, end = 16.dp, top = 8.dp)){
         Column {
             Row {
-                IconButton(onClick = { /*TODO*/ }) {
+                IconButton(onClick = { navigator.navigate(direction = HomeViewDestination) }) {
                     Image(modifier = Modifier.size(48.dp),painter = painterResource(id = R.drawable.back), contentDescription ="back")
                 }
-                Text(text = "Payments",
+                Text(text = "Wallet",
                     color = Color.White,
                     fontSize = 22.sp,
                     fontWeight = FontWeight.Bold,
@@ -49,7 +50,7 @@ fun WalletView(navigator: DestinationsNavigator) {
             WalletInformations()
         }
         Box(modifier = Modifier.align(alignment = Alignment.BottomEnd)) {
-            BottomBar()
+            BottomBar(navigator)
         }
     }
 }

@@ -28,43 +28,29 @@ import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import fin.tech.odem.R
 import fin.tech.odem.screens.BottomBar
+import fin.tech.odem.screens.destinations.SettingsViewDestination
+import fin.tech.odem.screens.destinations.SupportViewDestination
 
 
 @Destination
 @Composable
-@Preview
-fun HomeView() {
-    /*Column(modifier = Modifier
-        .padding(8.dp)){
-        Box(modifier = Modifier.weight(1f).fillMaxSize()){
-            Column {
-                Welcome()
-                Spacer(modifier = Modifier.padding(vertical = 24.dp))
-                Balance()
-                Spacer(modifier = Modifier.padding(vertical = 24.dp))
-                HomePaymentsView()
-            }
-            Box(modifier = Modifier.align(alignment = Alignment.BottomEnd)) {
-                BottomBar(navigator)
-            }
-        }
-    }*/
-    Box(modifier = Modifier.fillMaxSize()){
+fun HomeView(navigator: DestinationsNavigator) {
+    Box(modifier = Modifier.fillMaxSize().padding(start = 16.dp, end = 16.dp, top = 8.dp)){
         Column {
-            Welcome()
-            Spacer(modifier = Modifier.padding(vertical = 24.dp))
+            Welcome(navigator)
+            Spacer(modifier = Modifier.padding(vertical = 12.dp))
             Balance()
-            Spacer(modifier = Modifier.padding(vertical = 24.dp))
+            Spacer(modifier = Modifier.padding(vertical = 12.dp))
             HomePaymentsView()
         }
-        Box(modifier = Modifier.align(alignment = Alignment.BottomEnd)) {
-            BottomBar()
+        Box(modifier = Modifier.align(alignment = Alignment.BottomEnd).padding(top = 12.dp)) {
+            BottomBar(navigator)
         }
     }
 }
 
 @Composable
-fun Welcome() {
+fun Welcome(navigator: DestinationsNavigator) {
     Box(modifier = Modifier.fillMaxWidth()) {
         Row(modifier = Modifier.fillMaxWidth()) {
             Image(painter = painterResource(id = R.drawable.person),
@@ -73,13 +59,13 @@ fun Welcome() {
                 Text(text = "Welcome Back", color = Color.White)
                 Text(text = "Name Here", color = Color.White)
             }
-            SettingsButton()
+            SettingsSupportButton(navigator)
         }
     }
 }
 
 @Composable
-fun SettingsButton() {
+fun SettingsSupportButton(navigator: DestinationsNavigator) {
     Box(
         modifier = Modifier.fillMaxWidth()
     ) {
@@ -89,10 +75,10 @@ fun SettingsButton() {
                 .align(Alignment.CenterEnd)
         ){
             Row {
-                IconButton(onClick = { /*TODO*/ }) {
-                    Image(painter = painterResource(id = R.drawable.support), contentDescription ="settings" )
+                IconButton(onClick = { navigator.navigate(direction = SupportViewDestination) }) {
+                    Image(painter = painterResource(id = R.drawable.support), contentDescription ="support" )
                 }
-                IconButton(onClick = { /*TODO*/ }) {
+                IconButton(onClick = { navigator.navigate(direction = SettingsViewDestination) }) {
                     Image(painter = painterResource(id = R.drawable.settings), contentDescription ="settings" )
                 }
             }
@@ -104,7 +90,7 @@ fun SettingsButton() {
 fun Balance() {
     Box(modifier = Modifier
         .fillMaxWidth()
-        .height(120.dp)
+        .height(100.dp)
         .background(Color(0xFF141414), RoundedCornerShape(16.dp))){
         Column(modifier = Modifier.padding(start = 8.dp, top = 12.dp, end = 8.dp)) {
             Text(text = "Your balance is", color = Color.White)

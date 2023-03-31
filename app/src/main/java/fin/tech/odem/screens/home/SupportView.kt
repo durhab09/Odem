@@ -40,13 +40,14 @@ import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import fin.tech.odem.R
 import fin.tech.odem.screens.BottomBar
+import fin.tech.odem.screens.destinations.SupportViewDestination
 
 @Destination
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SupportView(navigator: DestinationsNavigator) {
     var message by remember { mutableStateOf("") }
-    Box(modifier = Modifier.fillMaxSize()){
+    Box(modifier = Modifier.fillMaxSize().padding(start = 16.dp, end = 16.dp, top = 8.dp)){
         Column {
             Row {
                 IconButton(onClick = { /*TODO*/ }) {
@@ -81,7 +82,7 @@ fun SupportView(navigator: DestinationsNavigator) {
             }
             Spacer(modifier = Modifier.padding(vertical = 18.dp))
             Column(modifier = Modifier.fillMaxWidth()) {
-                Button(onClick = {/*TODO*/},
+                Button(onClick = {navigator.navigate(direction = SupportViewDestination)},
                     colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF536DFE))
                     , modifier = Modifier.align(Alignment.CenterHorizontally)) {
                     Text(text = "Send", fontSize = 24.sp,
@@ -91,7 +92,7 @@ fun SupportView(navigator: DestinationsNavigator) {
             }
         }
         Box(modifier = Modifier.align(alignment = Alignment.BottomEnd)) {
-            BottomBar()
+            BottomBar(navigator)
         }
     }
 }
