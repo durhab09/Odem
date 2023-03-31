@@ -30,25 +30,23 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import fin.tech.odem.R
 import fin.tech.odem.screens.destinations.HomeViewDestination
 import fin.tech.odem.screens.destinations.PaymentsViewDestination
+import fin.tech.odem.screens.destinations.SendViewDestination
 import fin.tech.odem.screens.destinations.WalletViewDestination
 @Destination
 @Composable
-fun BottomBar(navigator: DestinationsNavigator) {
-    var isHomeSelected by remember { mutableStateOf(false) }
-    var isWalletSelected by remember { mutableStateOf(false) }
-    var isPaymentSelected by remember { mutableStateOf(false) }
+fun BottomBar(navigator: DestinationsNavigator, isHomeSelected: Boolean =false, isWalletSelected: Boolean =false, isPaymentSelected: Boolean =false) {
     Box(modifier = Modifier.size(width = 380.dp, height = 100.dp)){
         Column {
             Row(modifier = Modifier.fillMaxWidth(),horizontalArrangement = Arrangement.SpaceEvenly) {
-                Button(onClick = {/*TODO*/},
+                Button(onClick = {navigator.navigate(direction = SendViewDestination)},
                     colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF536DFE))) {
-                    Text(text = "Request", fontSize = 16.sp,
+                    Text(text = "Send", fontSize = 16.sp,
                         modifier = Modifier.size(width = 64.dp, height = 18.dp),
                         textAlign = TextAlign.Center)
                 }
                 Button(onClick = {/*TODO*/},
                     colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF536DFE))) {
-                    Text(text = "Send", fontSize = 16.sp,
+                    Text(text = "Request", fontSize = 16.sp,
                         modifier = Modifier.size(width = 64.dp, height = 18.dp),
                         textAlign = TextAlign.Center)
                 }
@@ -60,9 +58,6 @@ fun BottomBar(navigator: DestinationsNavigator) {
                     Column {
                         Row(modifier = Modifier.fillMaxWidth(),horizontalArrangement = Arrangement.SpaceEvenly) {
                             IconButton(onClick = {
-                                isHomeSelected = !isHomeSelected
-                                isPaymentSelected = false
-                                isWalletSelected = false
                                 navigator.navigate(direction = HomeViewDestination)
                             }) {
                                 if(isHomeSelected){
@@ -72,9 +67,6 @@ fun BottomBar(navigator: DestinationsNavigator) {
                                 }
                             }
                             IconButton(onClick = {
-                                isPaymentSelected = !isPaymentSelected
-                                isHomeSelected = false
-                                isWalletSelected = false
                                 navigator.navigate(direction = PaymentsViewDestination)
                             }) {
                                 if(isPaymentSelected){
@@ -84,9 +76,6 @@ fun BottomBar(navigator: DestinationsNavigator) {
                                 }
                             }
                             IconButton(onClick = {
-                                isWalletSelected = !isWalletSelected
-                                isPaymentSelected = false
-                                isHomeSelected = false
                                 navigator.navigate(direction = WalletViewDestination)
                             }) {
                                 if(isWalletSelected){

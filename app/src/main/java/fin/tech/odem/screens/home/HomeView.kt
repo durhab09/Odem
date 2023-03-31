@@ -42,7 +42,7 @@ fun HomeView(navigator: DestinationsNavigator) {
             HomePaymentsView()
         }
         Box(modifier = Modifier.align(alignment = Alignment.BottomEnd).padding(top = 12.dp)) {
-            BottomBar(navigator)
+            BottomBar(navigator, isHomeSelected = true)
         }
     }
 }

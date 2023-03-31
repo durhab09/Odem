@@ -48,7 +48,7 @@ fun WalletView(navigator: DestinationsNavigator) {
             WalletInformations()
         }
         Box(modifier = Modifier.align(alignment = Alignment.BottomEnd)) {
-            BottomBar(navigator)
+            BottomBar(navigator, isWalletSelected = true)
         }
     }
 }

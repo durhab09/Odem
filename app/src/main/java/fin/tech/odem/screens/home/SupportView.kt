@@ -38,6 +38,7 @@ import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import fin.tech.odem.R
 import fin.tech.odem.screens.BottomBar
+import fin.tech.odem.screens.destinations.HomeViewDestination
 import fin.tech.odem.screens.destinations.SupportViewDestination
 
 @Destination
@@ -48,7 +49,7 @@ fun SupportView(navigator: DestinationsNavigator) {
     Box(modifier = Modifier.fillMaxSize().padding(start = 16.dp, end = 16.dp, top = 8.dp)){
         Column {
             Row {
-                IconButton(onClick = { /*TODO*/ }) {
+                IconButton(onClick = { navigator.navigate(direction = HomeViewDestination) }) {
                     Image(modifier = Modifier.size(48.dp),painter = painterResource(id = R.drawable.back), contentDescription ="back")
                 }
                 Text(text = "Support",

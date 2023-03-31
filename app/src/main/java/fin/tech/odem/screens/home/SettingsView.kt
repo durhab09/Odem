@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -34,6 +35,7 @@ import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import fin.tech.odem.R
 import fin.tech.odem.screens.BottomBar
+import fin.tech.odem.screens.destinations.HomeViewDestination
 
 @Destination
 @OptIn(ExperimentalMaterial3Api::class)
@@ -44,7 +46,7 @@ fun SettingsView(navigator: DestinationsNavigator) {
     Box(modifier = Modifier.fillMaxSize().padding(start = 16.dp, end = 16.dp, top = 8.dp)){
         Column {
             Row {
-                IconButton(onClick = { /*TODO*/ }) {
+                IconButton(onClick = { navigator.navigate(direction = HomeViewDestination) }) {
                     Image(modifier = Modifier.size(48.dp),painter = painterResource(id = R.drawable.back), contentDescription ="back")
                 }
                 Text(text = "Settings",
@@ -55,7 +57,8 @@ fun SettingsView(navigator: DestinationsNavigator) {
                 )
             }
             Box(modifier = Modifier
-                .size(width = 380.dp, height = 120.dp)
+                .fillMaxWidth()
+                .height(120.dp)
                 .background(Color.Transparent)
                 .padding(start = 12.dp, end = 8.dp)
             ){

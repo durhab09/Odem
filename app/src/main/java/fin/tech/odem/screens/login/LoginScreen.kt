@@ -65,8 +65,7 @@ fun LoginView(navigator: DestinationsNavigator) {
                     focusedLabelColor = Color(0xFF536DFE),
                     focusedIndicatorColor = Color(0xFF536DFE),
                     cursorColor = Color(0xFF536DFE)
-                ),
-
+                )
             )
             Spacer(modifier = Modifier.padding(vertical = 24.dp))
             TextField(

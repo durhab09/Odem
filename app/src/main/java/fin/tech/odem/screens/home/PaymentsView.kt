@@ -66,7 +66,7 @@ fun PaymentsView(navigator: DestinationsNavigator) {
             }
         }
         Box(modifier = Modifier.align(alignment = Alignment.BottomEnd)) {
-            BottomBar(navigator)
+            BottomBar(navigator, isPaymentSelected = true)
         }
     }
 }
